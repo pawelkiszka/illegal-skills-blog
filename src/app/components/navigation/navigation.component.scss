@@ -1,0 +1,18 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav-logo {
+  background-image: $angular-logo-url;
+  width: $angular-logo-width;
+  height: $angular-logo-height;
+  background-size: cover;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+.menu-button {
+}

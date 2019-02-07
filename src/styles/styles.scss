@@ -1,0 +1,9 @@
+// Theming
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// Globals
+@import './_global.scss';
+@import './_variables.scss';
+// Components
+@import '../app/components/navigation/navigation.component.scss';
+@import '../app/components/dashboard/dashboard.component.scss';
