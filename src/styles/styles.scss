@@ -5,5 +5,15 @@
 @import './_global.scss';
 @import './_variables.scss';
 // Components
-@import '../app/components/navigation/navigation.component.scss';
+@import '../app/components/top-navigation/top-navigation.component';
 @import '../app/components/dashboard/dashboard.component.scss';
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
