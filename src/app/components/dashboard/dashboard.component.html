@@ -1,11 +1,42 @@
-<mat-card fxFlex="1 0 auto" fxLayout="column" fxLayoutGap="20px">
-    <app-blog-item [blogItemType]="BlogItemType.BASIC">
-
-    </app-blog-item>
+<div class="transparent" fxFlex="1 1 auto" fxLayout="column" fxLayoutGap="40px">
     <app-blog-item [blogItemType]="BlogItemType.RX_JS">
-
+        <h3 app-blog-item-title>What is AJAX</h3>
+        <label app-blog-item-date>10-12-2018</label>
+        <div app-blog-item-description>
+            <p>
+                Asynchronous Javascript and XML (AJAX), is a way of communicating to a web server from a client-side
+                application through the HTTP or HTTPS protocol.
+            </p>
+            <p>
+                Even though AJAX holds XML in the name, the way data is sent through requests or received doesn't have
+                to be XML, but
+            </p>
+        </div>
+    </app-blog-item>
+    <app-blog-item [blogItemType]="BlogItemType.BASIC">
+        <h3 app-blog-item-title>What is LOVE</h3>
+        <label app-blog-item-date>09-02-2019</label>
+        <div app-blog-item-description>
+            <p>
+                Baby don't hurt me, don't hurt me.
+            </p>
+            <p>
+                No more.
+            </p>
+        </div>
     </app-blog-item>
     <app-blog-item [blogItemType]="BlogItemType.NG_RX">
-
+        <h3 app-blog-item-title>What is AJAX</h3>
+        <label app-blog-item-date>10-12-2018</label>
+        <div app-blog-item-description>
+            <p>
+                Asynchronous Javascript and XML (AJAX), is a way of communicating to a web server from a client-side
+                application through the HTTP or HTTPS protocol.
+            </p>
+            <p>
+                Even though AJAX holds XML in the name, the way data is sent through requests or received doesn't have
+                to be XML, but
+            </p>
+        </div>
     </app-blog-item>
-</mat-card>
+</div>

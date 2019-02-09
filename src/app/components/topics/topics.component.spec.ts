@@ -1,4 +1,4 @@
-import { TopicsComponent } from "./topics.component";
+import { TopicsComponent } from './topics.component';
 
 describe('TopicsComponent', () => {
 

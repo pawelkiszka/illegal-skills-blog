@@ -1,16 +1,15 @@
+//:host {
+//  position: fixed;
+//  top: 0;
+//  width: 100%;
+//}
+
 .sidenav-container {
   height: 100%;
 }
 
-.sidenav-logo {
-  background-image: $angular-logo-url;
-  width: $angular-logo-width;
-  height: $angular-logo-height;
-  background-size: contain;
-}
-
 .mat-toolbar{
-  background-color: lightgray;
+  background-color: $color-secondary;
   .mat-primary {
     position: sticky;
     top: 0;

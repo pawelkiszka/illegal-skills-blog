@@ -1,4 +1,4 @@
-import { BlogItemComponent } from "./blog-item.component";
+import { BlogItemComponent } from './blog-item.component';
 
 describe('BlogItemComponent', () => {
 

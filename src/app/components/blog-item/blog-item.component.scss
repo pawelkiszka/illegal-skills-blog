@@ -1,0 +1,32 @@
+@import 'styles';
+
+:host ::ng-deep {
+  [app-blog-item-date] {
+    color: $color-secondary;
+  }
+
+  [app-blog-item-description] {
+    height: 120px;
+  }
+
+  [app-blog-item-title] {
+    margin-bottom: 0;
+  }
+}
+
+.item-type {
+  margin-right: 25px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  border-radius: 10px;
+  border: 2px solid $color-primary;
+  cursor: pointer;
+}
+
+.divider {
+  content: "";
+  display: block;
+  margin: 0 0 0 auto;
+  width: 40%;
+  border-bottom: 2px solid $color-primary;
+}
