@@ -21,6 +21,10 @@
   border-radius: 10px;
   border: 2px solid $color-primary;
   cursor: pointer;
+
+  &.active {
+    background-color: orangered;
+  }
 }
 
 .divider {

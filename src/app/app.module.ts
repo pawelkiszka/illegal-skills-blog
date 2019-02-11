@@ -18,6 +18,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { components } from './components';
 import { directives } from './directives';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { storeReducer } from './store/store.reducer';
+import { StoreModule } from '@ngrx/store';
+
+const angularMaterialModules = [
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatChipsModule
+];
 
 @NgModule({
     declarations: [
@@ -28,17 +42,12 @@ import { directives } from './directives';
     imports: [
         BrowserModule,
         LayoutModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatListModule,
-        MatCardModule,
-        MatMenuModule,
-        MatChipsModule,
+        ...angularMaterialModules,
         RouterModule.forRoot([]),
         BrowserAnimationsModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        StoreModule.forRoot({'store': storeReducer}), // todo: migrate to angular 7
+        StoreDevtoolsModule.instrument()
     ],
     providers: [],
     bootstrap: [AppComponent]
