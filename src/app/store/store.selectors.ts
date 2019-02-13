@@ -1,14 +1,14 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { StoreState } from './store.reducer';
-import { BlogItemType } from '../models/blog-item-type';
+import { BlogItemTopic } from '../models/blog-item-topic';
 
 const getStoreState = createFeatureSelector<StoreState>('store');
 
-const isBlogItemTypeSelected = (blogItemType: BlogItemType) => createSelector(
+const isBlogItemTopicSelected = (blogItemTopic: BlogItemTopic) => createSelector(
     getStoreState,
-    (state: StoreState) => state.selectedBlogItemTypes.contains(blogItemType.getIdentifier())
+    (state: StoreState) => state.selectedBlogItemTypes.contains(blogItemTopic)
 );
 
 export const fromStoreSelectors = {
-    isBlogItemTypeSelected
+    isBlogItemTypeSelected: isBlogItemTopicSelected
 };

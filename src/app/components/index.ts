@@ -1,7 +1,7 @@
 import {
     BlogItemComponent,
     BlogItemDateDirective,
-    BlogItemDescriptionDirective,
+    BlogItemDescriptionDirective, BlogItemImageDirective,
     BlogItemTitleDirective
 } from './blog-item/blog-item.component';
 import { ContactComponent } from './contact/contact.component';
@@ -15,6 +15,7 @@ export const components = [
     BlogItemDateDirective,
     BlogItemTitleDirective,
     BlogItemDescriptionDirective,
+    BlogItemImageDirective,
     ContactComponent,
     DashboardComponent,
     SideNavigationComponent,

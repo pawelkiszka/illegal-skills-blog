@@ -2,7 +2,7 @@
 
 :host ::ng-deep {
   [app-blog-item-date] {
-    color: $color-secondary;
+    color: $color-primary-light;
   }
 
   [app-blog-item-description] {
@@ -12,25 +12,39 @@
   [app-blog-item-title] {
     margin-bottom: 0;
   }
+
+  [app-blog-item-image] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+  }
 }
 
-.item-type {
-  margin-right: 25px;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  border-radius: 10px;
-  border: 2px solid $color-primary;
-  cursor: pointer;
+.image-container {
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+}
 
-  &.active {
-    background-color: orangered;
+.mat-chip.mat-standard-chip {
+  background: $color-background-dark;
+  color: $color-secondary;
+  font-weight: bold;
+  border: 2px solid $color-primary;
+
+  &:hover {
+    background: $color-background-light;
   }
 }
 
 .divider {
   content: "";
   display: block;
-  margin: 0 0 0 auto;
-  width: 40%;
+  margin: 10px 0 0 auto;
+  width: 60%;
   border-bottom: 2px solid $color-primary;
 }

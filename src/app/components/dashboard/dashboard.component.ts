@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BlogItemType } from '../../models/blog-item-type';
+import { BlogItemTopic } from '../../models/blog-item-topic';
 
 @Component({
     selector: 'app-dashboard',
@@ -8,7 +8,7 @@ import { BlogItemType } from '../../models/blog-item-type';
 })
 export class DashboardComponent {
 
-    public BlogItemType = BlogItemType;
+    public BlogItemTopic = BlogItemTopic;
 
     constructor() {
     }
