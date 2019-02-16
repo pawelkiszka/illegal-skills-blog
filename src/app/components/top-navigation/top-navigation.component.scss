@@ -1,17 +1,11 @@
-//:host {
-//  position: fixed;
-//  top: 0;
-//  width: 100%;
-//}
+@import 'styles';
 
-.sidenav-container {
-  height: 100%;
+:host {
+  background-color: $color-secondary;
+  color: black;
+  padding: 0 2rem;
 }
 
-.mat-toolbar{
-  background-color: $color-secondary;
-  .mat-primary {
-    position: sticky;
-    top: 0;
-  }
+.highlighted {
+  color: $color-primary;
 }

@@ -8,11 +8,11 @@ import { fromStoreSelectors } from '../../store/store.selectors';
 
 @Component({
     selector: 'app-side-navigation',
-    templateUrl: './side-navigation.component.html',
-    styleUrls: ['./side-navigation.component.scss'],
+    templateUrl: './popular-topics.component.html',
+    styleUrls: ['./popular-topics.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SideNavigationComponent {
+export class PopularTopicsComponent {
 
     public readonly blogItemTopics: BlogItemTopic[] = fromBlogItemTopic.values();
     public readonly selectedBlogItemTopics$: Observable<BlogItemTopic[]>;

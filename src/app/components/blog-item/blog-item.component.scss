@@ -13,8 +13,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100px;
-    height: 100px;
+    width: 6rem;
+    height: 6rem;
   }
 }
 
@@ -22,8 +22,8 @@
   background-color: white;
   border-radius: 50%;
   display: inline-block;
-  width: 130px;
-  height: 130px;
+  width: 8rem;
+  height: 8rem;
 }
 
 .mat-chip.mat-standard-chip {
@@ -31,16 +31,12 @@
   color: $color-secondary;
   font-weight: bold;
   border: 2px solid $color-primary;
-
-  &:hover {
-    background: $color-background-light;
-  }
 }
 
 .divider {
   content: "";
   display: block;
-  margin: 10px 0 0 auto;
-  width: 60%;
+  margin: 0.5rem 0 0 auto;
+  width: 70%;
   border-bottom: 2px solid $color-primary;
 }

@@ -5,16 +5,9 @@ import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-top-navigation',
-    templateUrl: './top-navigation.component.html'
+    templateUrl: './top-navigation.component.html',
+    styleUrls: ['./top-navigation.component.scss']
 })
 export class TopNavigationComponent {
-
-    public readonly isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-        .pipe(
-            map(result => result.matches)
-        );
-
-    constructor(private breakpointObserver: BreakpointObserver) {
-    }
 
 }

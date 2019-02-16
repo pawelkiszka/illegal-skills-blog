@@ -8,8 +8,8 @@
             <ng-content select="[app-blog-item-description]"></ng-content>
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <ng-content select="[app-blog-item-date]"></ng-content>
-                <mat-chip-list>
-                    <mat-chip *ngFor="let topic of topics">{{topic}}</mat-chip>
+                <mat-chip-list disabled>
+                    <mat-chip disabled *ngFor="let topic of topics">{{topic}}</mat-chip>
                 </mat-chip-list>
             </div>
         </div>

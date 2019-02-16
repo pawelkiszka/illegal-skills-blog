@@ -6,9 +6,9 @@ import {
 } from './blog-item/blog-item.component';
 import { ContactComponent } from './contact/contact.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { PopularTopicsComponent } from './popular-topics/popular-topics.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
-import { TopicsComponent } from './topics/topics.component';
+import { FollowMeComponent } from './follow-me/follow-me.component';
 
 export const components = [
     BlogItemComponent,
@@ -18,7 +18,7 @@ export const components = [
     BlogItemImageDirective,
     ContactComponent,
     DashboardComponent,
-    SideNavigationComponent,
+    PopularTopicsComponent,
     TopNavigationComponent,
-    TopicsComponent
+    FollowMeComponent
 ];
