@@ -1,16 +1,18 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="35px">
-    <div class="image-container" fxFlex="0 0 auto" fxLayoutAlign="center center">
-        <ng-content select="[app-blog-item-image]"></ng-content>
-    </div>
-    <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
-        <ng-content select="[app-blog-item-title]"></ng-content>
-        <ng-content select="[app-blog-item-description]"></ng-content>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <ng-content select="[app-blog-item-date]"></ng-content>
-            <mat-chip-list>
-                <mat-chip *ngFor="let topic of topics">{{topic}}</mat-chip>
-            </mat-chip-list>
+<ng-container *ngIf="(isSelected$ | async) || (isNoneOfBlogItemTopicSelected$ | async)">
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="35px">
+        <div class="image-container" fxFlex="0 0 auto" fxLayoutAlign="center center">
+            <ng-content select="[app-blog-item-image]"></ng-content>
+        </div>
+        <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
+            <ng-content select="[app-blog-item-title]"></ng-content>
+            <ng-content select="[app-blog-item-description]"></ng-content>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <ng-content select="[app-blog-item-date]"></ng-content>
+                <mat-chip-list>
+                    <mat-chip *ngFor="let topic of topics">{{topic}}</mat-chip>
+                </mat-chip-list>
+            </div>
         </div>
     </div>
-</div>
-<div class="divider"></div>
+    <div class="divider"></div>
+</ng-container>

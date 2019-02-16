@@ -1,5 +1,11 @@
-<div fxFlex="1 0 auto">
-    <h6>
-        Popular Topics
-    </h6>
+<div fxFlex="1 1 auto">
+    <h6>Popular Topics</h6>
+    <mat-chip-list *ngIf="selectedBlogItemTopics$ | async as selectedBlogItemTopics"
+                   fxLayoutAlign="center">
+        <mat-chip *ngFor="let topic of blogItemTopics"
+                  (click)="toggleBlogItemTopic(topic)"
+                  [ngClass]="{'selected': selectedBlogItemTopics.includes(topic)}">
+            {{topic}}
+        </mat-chip>
+    </mat-chip-list>
 </div>

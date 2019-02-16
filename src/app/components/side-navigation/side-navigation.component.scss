@@ -4,3 +4,23 @@
   background-color: $color-background-light;
   padding: 10px;
 }
+
+h6 {
+  text-align: center;
+}
+
+.mat-chip.mat-standard-chip {
+  color: $color-secondary;
+  background: $color-background-light;
+  font-weight: bold;
+  border: 2px solid $color-primary;
+
+  &:hover {
+    background: $color-background-dark;
+  }
+
+  &.selected {
+    background: $color-primary;
+    border: 2px solid $color-primary-light;
+  }
+}
