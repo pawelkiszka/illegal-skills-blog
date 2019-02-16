@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { fromStoreSelectors } from '../../store/store.selectors';
 
 @Component({
-    selector: 'app-side-navigation',
+    selector: 'app-popular-topics',
     templateUrl: './popular-topics.component.html',
     styleUrls: ['./popular-topics.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
