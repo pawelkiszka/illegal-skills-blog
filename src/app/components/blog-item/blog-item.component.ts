@@ -1,10 +1,8 @@
-import { ChangeDetectionStrategy, Component, Directive, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Directive, Input } from '@angular/core';
 import { BlogItemTopic } from '../../models/blog-item-topic';
-import { StoreState } from '../../store/store.reducer';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { fromStoreSelectors } from '../../store/store.selectors';
-import { map } from 'rxjs/operators';
+import { BlogItem } from '../../models/blog-item';
+import { HideableComponent } from '../../models/hideable-component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
     selector: 'app-blog-item',
@@ -12,34 +10,18 @@ import { map } from 'rxjs/operators';
     styleUrls: ['./blog-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogItemComponent implements OnInit {
+export class BlogItemComponent implements BlogItem, HideableComponent {
+    public isDisplayed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
     @Input() public topics: BlogItemTopic[] = [];
-    public isSelected$: Observable<boolean>;
-    public isNoneOfBlogItemTopicSelected$: Observable<boolean>;
+    @Input() public title: string = 'title';
 
-    constructor(private readonly store$: Store<StoreState>) {
+    public hideComponent() {
+        this.isDisplayed$.next(false);
     }
 
-    public ngOnInit(): void {
-        this.isSelected$ = this.isBlogItemSelected();
-        this.isNoneOfBlogItemTopicSelected$ = this.store$.pipe(
-            select(fromStoreSelectors.getSelectedBlogItemTopics),
-            map((selectedBlogItemTopics: BlogItemTopic[]) => selectedBlogItemTopics.length === 0)
-        );
-    }
-
-    private isBlogItemSelected(): Observable<boolean> {
-        return this.store$.pipe(
-            select(fromStoreSelectors.getSelectedBlogItemTopics),
-            map((selectedBlogItemTopics: BlogItemTopic[]) =>
-                this.areAllSelectedTopicsIncludedInCurrentBlogItemTopicsList(selectedBlogItemTopics)
-            )
-        );
-    }
-
-    private areAllSelectedTopicsIncludedInCurrentBlogItemTopicsList(selectedBlogItemTopics: BlogItemTopic[]): boolean {
-        return selectedBlogItemTopics.every((topic: BlogItemTopic) => this.topics.includes(topic))
+    public showComponent() {
+        this.isDisplayed$.next(true);
     }
 }
 

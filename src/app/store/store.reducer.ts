@@ -4,10 +4,12 @@ import { BlogItemTopic } from '../models/blog-item-topic';
 
 export interface StoreState {
     selectedBlogItemTypes: Set<BlogItemTopic>
+    searchedBlogItemTitle: string;
 }
 
 export const INITIAL_STORE_STATE: StoreState = {
-    selectedBlogItemTypes: Set()
+    selectedBlogItemTypes: Set(),
+    searchedBlogItemTitle: undefined
 };
 
 export function storeReducer(state: StoreState = INITIAL_STORE_STATE,

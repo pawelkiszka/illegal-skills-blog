@@ -21,6 +21,10 @@ import { directives } from './directives';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeReducer } from './store/store.reducer';
 import { StoreModule } from '@ngrx/store';
+import { BLOG_ITEM_SELECTED_VOTER } from './services/filter-blog-items/blog-item-selected.voter';
+import { BlogItemSelectedByTitleVoter } from './services/filter-blog-items/blog-item-selected-by-title.voter';
+import { BlogItemSelectedByTopicVoter } from './services/filter-blog-items/blog-item-selected-by-topic.voter.';
+import { BlogItemSelectedService } from './services/filter-blog-items/blog-item-selected.service';
 
 const angularMaterialModules = [
     MatToolbarModule,
@@ -49,7 +53,11 @@ const angularMaterialModules = [
         StoreModule.forRoot({'store': storeReducer}), // todo: migrate to angular 7
         StoreDevtoolsModule.instrument()
     ],
-    providers: [],
+    providers: [
+        {provide: BLOG_ITEM_SELECTED_VOTER, useClass: BlogItemSelectedByTitleVoter, multi: true},
+        {provide: BLOG_ITEM_SELECTED_VOTER, useClass: BlogItemSelectedByTopicVoter, multi: true},
+        BlogItemSelectedService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

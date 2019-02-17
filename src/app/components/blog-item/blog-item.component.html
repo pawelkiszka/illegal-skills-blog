@@ -1,4 +1,4 @@
-<ng-container *ngIf="(isSelected$ | async) || (isNoneOfBlogItemTopicSelected$ | async)">
+<ng-container *ngIf="isDisplayed$ | async">
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4rem">
         <div class="image-container" fxFlex="0 0 auto" fxLayoutAlign="center center">
             <ng-content select="[app-blog-item-image]"></ng-content>

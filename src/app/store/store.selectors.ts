@@ -8,6 +8,12 @@ const getSelectedBlogItemTopics = createSelector(
     (state: StoreState) => state.selectedBlogItemTypes.toArray()
 );
 
+const getSearchedBlogItemTitle = createSelector(
+    getStoreState,
+    (state: StoreState) => state.searchedBlogItemTitle
+);
+
 export const fromStoreSelectors = {
-    getSelectedBlogItemTopics
+    getSelectedBlogItemTopics,
+    getSearchedBlogItemTitle
 };
