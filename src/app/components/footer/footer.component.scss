@@ -1,0 +1,8 @@
+@import 'styles';
+
+:host {
+  background: $color-secondary;
+  height: 30px;
+  border-top: 3px solid $color-primary;
+  z-index: 1;
+}

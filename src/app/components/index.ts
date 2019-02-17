@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PopularTopicsComponent } from './popular-topics/popular-topics.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { FollowMeComponent } from './follow-me/follow-me.component';
+import { FooterComponent } from './footer/footer.component';
 
 export const components = [
     BlogItemComponent,
@@ -20,5 +21,6 @@ export const components = [
     DashboardComponent,
     PopularTopicsComponent,
     TopNavigationComponent,
-    FollowMeComponent
+    FollowMeComponent,
+    FooterComponent
 ];
