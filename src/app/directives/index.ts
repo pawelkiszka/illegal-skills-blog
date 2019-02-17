@@ -1,1 +1,5 @@
-export const directives = [];
+import { ResizeOnScrollDirective } from './resize-on-scroll.directive';
+
+export const directives = [
+    ResizeOnScrollDirective
+];

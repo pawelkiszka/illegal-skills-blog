@@ -4,8 +4,22 @@
   background-color: $color-secondary;
   color: black;
   padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 4px solid $color-primary;
 }
 
 .highlighted {
   color: $color-primary;
+}
+
+#navbar-title {
+  transition: all 0.1s linear;
+}
+
+#navbar-title-suffix {
+  font-size: 1.4rem;
+  padding-left: 0.3rem;
 }
