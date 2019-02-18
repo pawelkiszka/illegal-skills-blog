@@ -5,7 +5,7 @@ import {
     BlogItemTitleDirective
 } from './blog-item/blog-item.component';
 import { ContactComponent } from './contact/contact.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { BlogItemsContainer } from './dashboard/blog-items-container.component';
 import { PopularTopicsComponent } from './popular-topics/popular-topics.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { FollowMeComponent } from './follow-me/follow-me.component';
@@ -18,7 +18,7 @@ export const components = [
     BlogItemDescriptionDirective,
     BlogItemImageDirective,
     ContactComponent,
-    DashboardComponent,
+    BlogItemsContainer,
     PopularTopicsComponent,
     TopNavigationComponent,
     FollowMeComponent,

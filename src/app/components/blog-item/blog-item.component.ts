@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Directive, Input } from '@angular/core';
 import { BlogItemTopic } from '../../models/blog-item-topic';
 import { BlogItem } from '../../models/blog-item';
-import { HideableComponent } from '../../models/hideable-component';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -10,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
     styleUrls: ['./blog-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogItemComponent implements BlogItem, HideableComponent {
+export class BlogItemComponent implements BlogItem {
     public isDisplayed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
     @Input() public topics: BlogItemTopic[] = [];

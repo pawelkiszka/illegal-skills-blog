@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { BLOG_ITEM_SELECTED_VOTER, BlogItemSelectedVoter } from './blog-item-selected.voter';
+import { BLOG_ITEM_SELECTED_VOTERS, BlogItemSelectedVoter } from './blog-item-selected.voter';
 import { combineLatest, iif, Observable, of } from 'rxjs';
 import { BlogItem } from '../../models/blog-item';
 import { distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { distinctUntilChanged, switchMap } from 'rxjs/operators';
 @Injectable()
 export class BlogItemSelectedService {
 
-    constructor(@Inject(BLOG_ITEM_SELECTED_VOTER) private readonly blogItemSelectedVoters: BlogItemSelectedVoter[]) {
+    constructor(@Inject(BLOG_ITEM_SELECTED_VOTERS) private readonly blogItemSelectedVoters: BlogItemSelectedVoter[]) {
     }
 
     public isBlogItemSelected(blogItem: BlogItem): Observable<boolean> {
