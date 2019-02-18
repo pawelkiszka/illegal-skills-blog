@@ -1,4 +1,9 @@
-import { StoreActions, TOGGLE_BLOG_ITEM_TOPIC } from './store.actions';
+import {
+    CLEAR_SEARCHED_TITLE_VALUE,
+    PERSIST_SEARCHED_TITLE_VALUE,
+    StoreActions,
+    TOGGLE_BLOG_ITEM_TOPIC
+} from './store.actions';
 import { Set } from 'immutable';
 import { BlogItemTopic } from '../models/blog-item-topic';
 
@@ -20,6 +25,16 @@ export function storeReducer(state: StoreState = INITIAL_STORE_STATE,
             return state.selectedBlogItemTypes.has(blogItemTopic)
                 ? removeFromStore(state, blogItemTopic)
                 : addToStore(state, blogItemTopic);
+        case PERSIST_SEARCHED_TITLE_VALUE:
+            return {
+                ...state,
+                searchedBlogItemTitle: action.payload
+            };
+        case CLEAR_SEARCHED_TITLE_VALUE:
+            return {
+                ...state,
+                searchedBlogItemTitle: undefined
+            };
         default:
             return state;
     }

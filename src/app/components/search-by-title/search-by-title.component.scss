@@ -1,0 +1,45 @@
+@import 'styles';
+
+:host {
+  background-color: $color-background-light;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+h6 {
+  text-align: center;
+}
+
+.mat-form-field {
+  font-size: 1.2rem;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+::ng-deep {
+  .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
+  .mat-form-field-infix {
+    border: 2px $color-secondary solid;
+    border-radius: 10px;
+    padding: 0.5rem !important;
+    background-color: $color-secondary;
+    color: black;
+
+    input {
+      caret-color: black !important;
+    }
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+
+button {
+  align-self: center;
+  background-color: $color-secondary;
+  color: $color-background-dark;
+}

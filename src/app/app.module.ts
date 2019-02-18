@@ -7,7 +7,9 @@ import {
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatSidenavModule,
@@ -26,6 +28,7 @@ import { BlogItemSelectedByTitleVoter } from './services/blog-items-visibility/b
 import { BlogItemSelectedByTopicVoter } from './services/blog-items-visibility/blog-item-selected-by-topic.voter.';
 import { BlogItemSelectedService } from './services/blog-items-visibility/blog-item-selected.service';
 import { BlogItemVisibilityController } from './services/blog-items-visibility/blog-item-visibility.controller';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const angularMaterialModules = [
     MatToolbarModule,
@@ -35,7 +38,11 @@ const angularMaterialModules = [
     MatListModule,
     MatCardModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule
 ];
 
 @NgModule({

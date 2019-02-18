@@ -1,7 +1,8 @@
 import {
     BlogItemComponent,
     BlogItemDateDirective,
-    BlogItemDescriptionDirective, BlogItemImageDirective,
+    BlogItemDescriptionDirective,
+    BlogItemImageDirective,
     BlogItemTitleDirective
 } from './blog-item/blog-item.component';
 import { ContactComponent } from './contact/contact.component';
@@ -10,6 +11,7 @@ import { PopularTopicsComponent } from './popular-topics/popular-topics.componen
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { FollowMeComponent } from './follow-me/follow-me.component';
 import { FooterComponent } from './footer/footer.component';
+import { SearchByTitleComponent } from './search-by-title/search-by-title.component';
 
 export const components = [
     BlogItemComponent,
@@ -22,5 +24,6 @@ export const components = [
     PopularTopicsComponent,
     TopNavigationComponent,
     FollowMeComponent,
-    FooterComponent
+    FooterComponent,
+    SearchByTitleComponent
 ];
