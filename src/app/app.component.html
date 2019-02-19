@@ -1,12 +1,7 @@
 <div fxLayout="column" fxFlex="1 1 100%" app-resize-on-scroll>
     <app-top-navigation fxFlex="0 0 auto"></app-top-navigation>
     <div fxFlex="1 0 auto" class="content">
-        <app-blog-items-container class="dashboard" fxFlex="1 1 75%"></app-blog-items-container>
-        <div fxFlex="1 1 25%" fxLayout="column" fxLayoutGap="1rem" id="side-navigation" class="side-navigation">
-            <app-popular-topics></app-popular-topics>
-            <app-search-by-title></app-search-by-title>
-            <app-follow-me></app-follow-me>
-        </div>
+        <router-outlet></router-outlet>
     </div>
     <app-footer fxFlex="0 0 auto"></app-footer>
 </div>

@@ -31,6 +31,7 @@ import { BlogItemVisibilityController } from './services/blog-items-visibility/b
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighlightModule } from 'ngx-highlightjs';
 import typescript from 'highlight.js/lib/languages/typescript';
+import { AppRoutingModule } from './app-routing.module';
 
 const angularMaterialModules = [
     MatToolbarModule,
@@ -57,7 +58,7 @@ const angularMaterialModules = [
         BrowserModule,
         LayoutModule,
         ...angularMaterialModules,
-        RouterModule.forRoot([]),
+        AppRoutingModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
         StoreModule.forRoot({'store': storeReducer}), // todo: migrate to angular 7
