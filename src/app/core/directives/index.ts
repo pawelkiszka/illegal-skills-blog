@@ -1,5 +1,5 @@
 import { ResizeOnScrollDirective } from './resize-on-scroll.directive';
 
-export const directives = [
+export const coreDirectives = [
     ResizeOnScrollDirective
 ];
