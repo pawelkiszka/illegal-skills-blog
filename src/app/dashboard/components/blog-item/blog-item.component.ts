@@ -14,6 +14,7 @@ export class BlogItemComponent implements BlogItem {
 
     @Input() public topics: BlogItemTopic[] = [];
     @Input() public title: string;
+    @Input() public link: string;
 
     public hideComponent() {
         this.isDisplayed$.next(false);

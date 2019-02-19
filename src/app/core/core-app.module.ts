@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedAppModule } from '../shared/shared-app.module';
 import { coreComponents } from './components';
 import { coreDirectives } from './directives';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { coreDirectives } from './directives';
         ...coreDirectives
     ],
     imports: [
-        SharedAppModule
+        SharedAppModule,
+        RouterModule
     ],
     exports: [
         ...coreComponents,

@@ -5,10 +5,6 @@
     color: $color-primary-light;
   }
 
-  [app-blog-item-title] {
-    margin-bottom: 0;
-  }
-
   [app-blog-item-image] {
     background-size: contain;
     background-repeat: no-repeat;
@@ -16,6 +12,10 @@
     width: 6rem;
     height: 6rem;
   }
+}
+
+h4 {
+  margin-bottom: 0;
 }
 
 .image-container {

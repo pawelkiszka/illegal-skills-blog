@@ -13,6 +13,10 @@ body {
   margin: 0;
 }
 
+[ng-reflect-router-link] {
+  cursor: pointer;
+}
+
 .transparent {
   background-color: transparent;
 }

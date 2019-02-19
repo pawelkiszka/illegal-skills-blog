@@ -1,6 +1,7 @@
 <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
     <app-blog-item [topics]="[BlogItemTopic.ANGULAR, BlogItemTopic.NG_RX]"
-                   title="What is AJAX">
+                   title="What is AJAX"
+                   link="articles/demo-article">
         <div app-blog-item-image class="angular-image"></div>
         <label app-blog-item-date>10-12-2018</label>
         <div app-blog-item-description>
@@ -15,7 +16,8 @@
         </div>
     </app-blog-item>
     <app-blog-item [topics]="[BlogItemTopic.ANGULAR, BlogItemTopic.RX_JS, BlogItemTopic.NG_RX]"
-                   title="What is LOVE">
+                   title="What is LOVE"
+                   link="articles/demo-article">
         <div app-blog-item-image class="rxjs-image"></div>
         <label app-blog-item-date>09-02-2019</label>
         <div app-blog-item-description>
@@ -27,7 +29,9 @@
             </p>
         </div>
     </app-blog-item>
-    <app-blog-item [topics]="[BlogItemTopic.JAVA]" title="What is JAVA">
+    <app-blog-item [topics]="[BlogItemTopic.JAVA]"
+                   title="What is JAVA"
+                   link="articles/demo-article">
         <div app-blog-item-image class="ngrx-image"></div>
         <label app-blog-item-date>10-12-2018</label>
         <div app-blog-item-description>
