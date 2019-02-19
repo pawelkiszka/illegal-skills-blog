@@ -10,6 +10,7 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
 import { FollowMeComponent } from './follow-me/follow-me.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchByTitleComponent } from './search-by-title/search-by-title.component';
+import { BlogArticleComponent } from './blog-article/blog-article.component';
 
 export const components = [
     BlogItemComponent,
@@ -21,5 +22,6 @@ export const components = [
     TopNavigationComponent,
     FollowMeComponent,
     FooterComponent,
-    SearchByTitleComponent
+    SearchByTitleComponent,
+    BlogArticleComponent
 ];

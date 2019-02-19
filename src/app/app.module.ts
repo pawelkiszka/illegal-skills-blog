@@ -29,6 +29,8 @@ import { BlogItemSelectedByTopicVoter } from './services/blog-items-visibility/b
 import { BlogItemSelectedService } from './services/blog-items-visibility/blog-item-selected.service';
 import { BlogItemVisibilityController } from './services/blog-items-visibility/blog-item-visibility.controller';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HighlightModule } from 'ngx-highlightjs';
+import typescript from 'highlight.js/lib/languages/typescript';
 
 const angularMaterialModules = [
     MatToolbarModule,
@@ -59,7 +61,10 @@ const angularMaterialModules = [
         BrowserAnimationsModule,
         FlexLayoutModule,
         StoreModule.forRoot({'store': storeReducer}), // todo: migrate to angular 7
-        StoreDevtoolsModule.instrument()
+        StoreDevtoolsModule.instrument(),
+        HighlightModule.forRoot({
+            languages: () => [{name: 'typescript', func: typescript}]
+        })
     ],
     providers: [
         {provide: BLOG_ITEM_SELECTED_VOTERS, useClass: BlogItemSelectedByTitleVoter, multi: true},

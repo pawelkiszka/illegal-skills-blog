@@ -1,0 +1,13 @@
+@import "styles";
+
+:host {
+  max-width: 740px;
+  padding: 0 1rem;
+}
+
+.hljs {
+  font-size: 0.8rem;
+  background-color: $color-secondary;
+  border-radius: 5px;
+  padding: 1rem;
+}
