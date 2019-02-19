@@ -41,7 +41,7 @@
             </p>
         </div>
     </app-blog-item>
-    <ng-container *ngIf="isNoneOfBlogItemsDisplayed$ | async">
+    <ng-container *ngIf="isNoneOfBlogItemsDisplayed$ && (isNoneOfBlogItemsDisplayed$ | async)">
         <h6>Sorry, we could not find any article, that matches your preferences.</h6>
     </ng-container>
 </div>

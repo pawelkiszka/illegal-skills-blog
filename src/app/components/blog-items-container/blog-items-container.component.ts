@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { BlogItemTopic } from '../../models/blog-item-topic';
 import { BlogItemComponent } from '../blog-item/blog-item.component';
 import { combineLatest, Observable, Subscription } from 'rxjs';
@@ -18,7 +18,8 @@ export class BlogItemsContainer implements AfterViewInit, OnDestroy {
 
     @ViewChildren(BlogItemComponent) blogItemComponents: QueryList<BlogItemComponent>;
 
-    constructor(private readonly blogItemVisibilityController: BlogItemVisibilityController) {
+    constructor(private readonly blogItemVisibilityController: BlogItemVisibilityController,
+                private readonly changeDetector: ChangeDetectorRef) {
     }
 
     public ngAfterViewInit(): void {
@@ -27,6 +28,7 @@ export class BlogItemsContainer implements AfterViewInit, OnDestroy {
             this.subscriptions.push(subscription);
         });
         this.isNoneOfBlogItemsDisplayed$ = this.isNoneOfBlogItemsDisplayed();
+        this.changeDetector.detectChanges();
     }
 
     private isNoneOfBlogItemsDisplayed(): Observable<boolean> {

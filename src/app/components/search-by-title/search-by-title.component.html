@@ -3,17 +3,4 @@
     <mat-form-field fxFlex="1 1 100%">
         <input matInput [formControl]="titleControl">
     </mat-form-field>
-    <div fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="center center">
-        <button mat-raised-button
-                [disabled]="formGroup.invalid || (isInsertedSearchedTitleEqualToPersistedSearchedTitle$ | async)"
-                (click)="persistInsertedTitle()">
-            Search
-        </button>
-        <button mat-raised-button
-                [disabled]="isPersistedSearchedTitleEmpty$ | async"
-                (click)="clearPersistedTitle()">
-            Reset searching
-        </button>
-    </div>
-
 </form>

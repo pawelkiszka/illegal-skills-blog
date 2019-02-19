@@ -10,6 +10,10 @@ h6 {
   text-align: center;
 }
 
+form {
+  margin-bottom: 1rem;
+}
+
 .mat-form-field {
   font-size: 1.2rem;
   font-weight: inherit;
@@ -36,11 +40,4 @@ h6 {
   .mat-form-field-underline {
     display: none;
   }
-}
-
-button {
-  align-self: center;
-  background-color: $color-secondary;
-  color: $color-background-dark;
-  border-radius: 5px;
 }
