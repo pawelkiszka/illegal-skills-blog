@@ -51,6 +51,7 @@ export class SearchByTitleComponent {
     }
 
     public clearPersistedTitle() {
+        this.titleControl.reset();
         this.store$.dispatch(new ClearSearchedTitleValue());
     }
 }

@@ -2,12 +2,12 @@ import { BlogItemSelectedVoter } from './blog-item-selected.voter';
 import { StoreState } from '../../store/store.reducer';
 import { select, Store } from '@ngrx/store';
 import { BlogItem } from '../../models/blog-item';
-import { iif, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { fromStoreSelectors } from '../../store/store.selectors';
-import { switchMap } from 'rxjs/operators';
 import { BlogItemTopic } from '../../models/blog-item-topic';
 import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class BlogItemSelectedByTopicVoter implements BlogItemSelectedVoter {
@@ -19,12 +19,11 @@ export class BlogItemSelectedByTopicVoter implements BlogItemSelectedVoter {
         this.checkParameter(blogItem);
         return this.store$.pipe(
             select(fromStoreSelectors.getSelectedBlogItemTopics),
-            switchMap((selectedTopics: BlogItemTopic[]) => iif(
-                () => isNullOrUndefined(selectedTopics) || selectedTopics.length === 0,
-                of(true),
-                this.areAllSelectedTopicsIncludedInBlogItem(blogItem, selectedTopics)
-            ))
-        );
+            map((selectedTopics: BlogItemTopic[]) =>
+                isNullOrUndefined(selectedTopics) || selectedTopics.length === 0
+                    ? true
+                    : this.areAllSelectedTopicsIncludedInBlogItem(blogItem, selectedTopics)
+            ));
     }
 
     private checkParameter(blogItem: BlogItem) {
@@ -33,9 +32,7 @@ export class BlogItemSelectedByTopicVoter implements BlogItemSelectedVoter {
         }
     }
 
-    private areAllSelectedTopicsIncludedInBlogItem(blogItem: BlogItem, selectedBlogItemTopics: BlogItemTopic[]): Observable<boolean> {
-        return of(
-            selectedBlogItemTopics.every((topic: BlogItemTopic) => blogItem.topics.includes(topic))
-        );
+    private areAllSelectedTopicsIncludedInBlogItem(blogItem: BlogItem, selectedBlogItemTopics: BlogItemTopic[]): boolean {
+        return selectedBlogItemTopics.every((topic: BlogItemTopic) => blogItem.topics.includes(topic))
     }
 }

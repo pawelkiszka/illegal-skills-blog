@@ -13,7 +13,7 @@ export class BlogItemComponent implements BlogItem {
     public isDisplayed$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
     @Input() public topics: BlogItemTopic[] = [];
-    @Input() public title: string = 'title';
+    @Input() public title: string;
 
     public hideComponent() {
         this.isDisplayed$.next(false);
@@ -26,10 +26,6 @@ export class BlogItemComponent implements BlogItem {
 
 @Directive({selector: '[app-blog-item-date]'})
 export class BlogItemDateDirective {
-}
-
-@Directive({selector: '[app-blog-item-title]'})
-export class BlogItemTitleDirective {
 }
 
 @Directive({selector: '[app-blog-item-description]'})
