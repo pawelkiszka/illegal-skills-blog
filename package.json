@@ -1,5 +1,5 @@
 {
-  "name": "blog-angular",
+  "name": "illegal-skills-exception-blog",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --base-href='https://pawelkiszka.github.io/blog-angular/'",
+    "build:prod": "ng build --prod --base-href='https://pawelkiszka.github.io/illegal-skills-exception-blog/'",
     "publish": "node_modules/angular-cli-ghpages/bin/angular-cli-ghpages"
   },
   "private": true,
