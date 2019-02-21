@@ -1,0 +1,16 @@
+image: node:8.12.0
+
+pages:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install -g @angular/cli@6.2.1
+    - npm install
+    - ng build
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+    - pages
