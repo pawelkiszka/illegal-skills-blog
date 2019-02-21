@@ -1,4 +1,4 @@
-import { FooterComponent } from "./footer.component";
+import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
 

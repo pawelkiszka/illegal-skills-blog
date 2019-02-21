@@ -1,4 +1,4 @@
-import { PopularTopicsComponent } from "./popular-topics.component";
+import { PopularTopicsComponent } from './popular-topics.component';
 
 describe('PopularTopicsComponent', () => {
 

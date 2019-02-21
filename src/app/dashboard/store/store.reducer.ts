@@ -8,7 +8,7 @@ import { Set } from 'immutable';
 import { BlogItemTopic } from '../models/blog-item-topic';
 
 export interface StoreState {
-    selectedBlogItemTypes: Set<BlogItemTopic>
+    selectedBlogItemTypes: Set<BlogItemTopic>;
     searchedBlogItemTitle: string;
 }
 
@@ -44,12 +44,12 @@ function removeFromStore(currentState: StoreState, blogItemTopic: BlogItemTopic)
     return {
         ...currentState,
         selectedBlogItemTypes: currentState.selectedBlogItemTypes.delete(blogItemTopic)
-    }
+    };
 }
 
 function addToStore(currentState: StoreState, blogItemTopic: BlogItemTopic): StoreState {
     return {
         ...currentState,
         selectedBlogItemTypes: currentState.selectedBlogItemTypes.add(blogItemTopic)
-    }
+    };
 }

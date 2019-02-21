@@ -10,7 +10,7 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
     templateUrl: './blog-items-container.component.html',
     styleUrls: ['./blog-items-container.component.scss']
 })
-export class BlogItemsContainer implements AfterViewInit, OnDestroy {
+export class BlogItemsContainerComponent implements AfterViewInit, OnDestroy {
 
     public BlogItemTopic = BlogItemTopic;
     private subscriptions: Subscription[] = [];

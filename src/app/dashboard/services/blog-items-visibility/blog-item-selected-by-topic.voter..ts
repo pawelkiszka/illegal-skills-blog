@@ -33,6 +33,6 @@ export class BlogItemSelectedByTopicVoter implements BlogItemSelectedVoter {
     }
 
     private areAllSelectedTopicsIncludedInBlogItem(blogItem: BlogItem, selectedBlogItemTopics: BlogItemTopic[]): boolean {
-        return selectedBlogItemTopics.every((topic: BlogItemTopic) => blogItem.topics.includes(topic))
+        return selectedBlogItemTopics.every((topic: BlogItemTopic) => blogItem.topics.includes(topic));
     }
 }

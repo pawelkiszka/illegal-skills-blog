@@ -3,7 +3,7 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 
 @Directive({
-    selector: '[app-resize-on-scroll]',
+    selector: '[appResizeOnScroll]',
 })
 export class ResizeOnScrollDirective implements AfterViewInit, OnDestroy {
 
@@ -13,7 +13,7 @@ export class ResizeOnScrollDirective implements AfterViewInit, OnDestroy {
 
     @HostListener('window:scroll', ['$event'])
     public onWindowScroll() {
-        this.scroll$.next()
+        this.scroll$.next();
     }
 
     public ngAfterViewInit(): void {

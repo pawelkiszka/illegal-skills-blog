@@ -4,15 +4,15 @@
              fxFlex="0 0 auto"
              fxLayoutAlign="center center"
              [routerLink]="link">
-            <ng-content select="[app-blog-item-image]"></ng-content>
+            <ng-content select="[appBlogItemImage]"></ng-content>
         </div>
         <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
             <h4 [routerLink]="link">{{title}}</h4>
             <div [routerLink]="link">
-                <ng-content  select="[app-blog-item-description]"></ng-content>
+                <ng-content  select="[appBlogItemDescription]"></ng-content>
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between center">
-                <ng-content select="[app-blog-item-date]"></ng-content>
+                <ng-content select="[appBlogItemDate]"></ng-content>
                 <mat-chip-list disabled>
                     <mat-chip disabled *ngFor="let topic of topics">{{topic}}</mat-chip>
                 </mat-chip-list>

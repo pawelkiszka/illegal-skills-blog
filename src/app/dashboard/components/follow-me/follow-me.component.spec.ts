@@ -1,4 +1,4 @@
-import { FollowMeComponent } from "./follow-me.component";
+import { FollowMeComponent } from './follow-me.component';
 
 describe('FollowMeComponent', () => {
 

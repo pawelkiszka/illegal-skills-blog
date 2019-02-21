@@ -1,11 +1,11 @@
 @import 'styles';
 
 :host ::ng-deep {
-  [app-blog-item-date] {
+  [appBlogItemDate] {
     color: $color-primary-light;
   }
 
-  [app-blog-item-image] {
+  [appBlogItemImage] {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

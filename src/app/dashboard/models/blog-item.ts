@@ -1,4 +1,4 @@
 export interface BlogItem {
-    title: string,
-    topics: string[]
+    title: string;
+    topics: string[];
 }

@@ -12,5 +12,5 @@ export class BlogArticleComponent {
             (codeBlock: ElementRef) => hljs.highlightBlock(codeBlock.nativeElement)
         );
     }
-    `
+    `;
 }

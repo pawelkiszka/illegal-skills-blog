@@ -25,14 +25,14 @@ export class BlogItemComponent implements BlogItem {
     }
 }
 
-@Directive({selector: '[app-blog-item-date]'})
+@Directive({selector: '[appBlogItemDate]'})
 export class BlogItemDateDirective {
 }
 
-@Directive({selector: '[app-blog-item-description]'})
+@Directive({selector: '[appBlogItemDescription]'})
 export class BlogItemDescriptionDirective {
 }
 
-@Directive({selector: '[app-blog-item-image]'})
+@Directive({selector: '[appBlogItemImage]'})
 export class BlogItemImageDirective {
 }
