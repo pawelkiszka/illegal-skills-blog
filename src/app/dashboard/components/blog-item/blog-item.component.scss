@@ -14,7 +14,7 @@
   }
 }
 
-h4 {
+h5 {
   margin-bottom: 0;
 }
 
@@ -31,12 +31,15 @@ h4 {
   color: $color-secondary;
   font-weight: bold;
   border: 2px solid $color-primary;
+  &.mat-chip-disabled {
+    opacity: 1;
+  }
 }
 
 .divider {
   content: "";
   display: block;
-  margin: 0.5rem 0 2rem auto;
+  margin: 0.5rem 0 1rem auto;
   width: 70%;
   border-bottom: 2px solid $color-primary;
 }

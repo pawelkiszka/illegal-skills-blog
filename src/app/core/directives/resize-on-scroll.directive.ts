@@ -35,17 +35,17 @@ export class ResizeOnScrollDirective implements AfterViewInit, OnDestroy {
     }
 
     private setDefaultStyling() {
-        document.getElementById('navbar-title').style.fontSize = '2rem';
-        document.getElementById('navbar-title').style.margin = '1rem 0';
-        document.getElementById('navbar-title-suffix').style.fontSize = '1.4rem';
-        document.getElementById('side-navigation').style.top = '70px';
+        document.getElementById('navbar-title').style.fontSize = '1.8rem';
+        document.getElementById('navbar-title').style.margin = '0.5rem 0';
+        document.getElementById('navbar-title-suffix').style.fontSize = '1.2rem';
+        document.getElementById('side-navigation').style.top = '65px';
     }
 
     private setSizedReducedStyling() {
-        document.getElementById('navbar-title').style.fontSize = '1.4rem';
-        document.getElementById('navbar-title').style.margin = '0.3rem 0';
-        document.getElementById('navbar-title-suffix').style.fontSize = '1rem';
-        document.getElementById('side-navigation').style.top = '40px';
+        document.getElementById('navbar-title').style.fontSize = '1.2rem';
+        document.getElementById('navbar-title').style.margin = '0.2rem 0';
+        document.getElementById('navbar-title-suffix').style.fontSize = '0.8rem';
+        document.getElementById('side-navigation').style.top = '45px';
     }
 
     public ngOnDestroy(): void {

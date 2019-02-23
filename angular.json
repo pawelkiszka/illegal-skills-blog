@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "illegal-skills-exception-blog": {
+    "illegal-skills-blog": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "illegal-skills-exception-blog:build"
+            "browserTarget": "illegal-skills-blog:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "illegal-skills-exception-blog:build:production"
+              "browserTarget": "illegal-skills-blog:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "illegal-skills-exception-blog:build"
+            "browserTarget": "illegal-skills-blog:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "illegal-skills-exception-blog-e2e": {
+    "illegal-skills-blog-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -108,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "illegal-skills-exception-blog:serve"
+            "devServerTarget": "illegal-skills-blog:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "illegal-skills-exception-blog:serve:production"
+              "devServerTarget": "illegal-skills-blog:serve:production"
             }
           }
         },
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "illegal-skills-exception-blog"
+  "defaultProject": "illegal-skills-blog"
 }

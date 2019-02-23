@@ -2,7 +2,6 @@ import { AfterViewInit, ChangeDetectionStrategy, Component } from '@angular/core
 import { StoreState } from '../../store/store.reducer';
 import { Store } from '@ngrx/store';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { isNullOrUndefined } from 'util';
 import { PersistSearchedTitleValue } from '../../store/store.actions';
 import { distinctUntilChanged, filter } from 'rxjs/operators';
 
@@ -27,7 +26,7 @@ export class SearchByTitleComponent implements AfterViewInit {
 
     public ngAfterViewInit(): void {
         this.titleControl.valueChanges.pipe(
-            filter((searchedTitle: string) => !isNullOrUndefined(searchedTitle)),
+            filter((searchedTitle: string) => searchedTitle !== null && searchedTitle !== undefined),
             distinctUntilChanged()
         ).subscribe(
             (searchedTitle: string) => this.persistInsertedTitle(searchedTitle)
