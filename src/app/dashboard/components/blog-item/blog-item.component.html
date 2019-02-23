@@ -1,14 +1,14 @@
 <ng-container *ngIf="isDisplayed$ | async">
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="4rem">
-        <div class="image-container"
+        <div class="image-container link"
              fxFlex="0 0 auto"
              fxLayoutAlign="center center"
-             routerLink="{{link}}">
+             [routerLink]="link">
             <ng-content select="[appBlogItemImage]"></ng-content>
         </div>
         <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
-            <h5 [routerLink]="link">{{title}}</h5>
-            <div [routerLink]="link">
+            <h5 [routerLink]="link" class="link">{{title}}</h5>
+            <div [routerLink]="link" class="link">
                 <ng-content  select="[appBlogItemDescription]"></ng-content>
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between center">
