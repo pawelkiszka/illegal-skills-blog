@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Directive, Input } from '@angular/core';
 
 @Component({
     selector: 'app-blog-article',
@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./blog-article.component.scss']
 })
 export class BlogArticleComponent {
+    @Input() public articleTitle: string;
+    @Input() public creationDate: string;
+}
 
-    public codeString = `public ngAfterViewInit(): void {
-        this.codeBlocks.forEach(
-            (codeBlock: ElementRef) => hljs.highlightBlock(codeBlock.nativeElement)
-        );
-    }
-    `;
+@Directive({selector: '[appBlogArticleImage]'})
+export class BlogArticleImageDirective {
 }

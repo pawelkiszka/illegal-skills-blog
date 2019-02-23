@@ -15,6 +15,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HighlightModule } from 'ngx-highlightjs';
 
 const angularMaterialModules = [
     MatToolbarModule,
@@ -36,7 +37,8 @@ const angularMaterialModules = [
         FlexLayoutModule,
         ReactiveFormsModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        HighlightModule
     ]
 })
 export class SharedAppModule {

@@ -1,7 +1,16 @@
-<!--Examples-->
-<!--Adding code -->
-<!--<pre>-->
-<!--   <code [highlight]="codeString"></code>-->
-<!--</pre>-->
-
-<ng-content></ng-content>
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="start">
+        <div class="go-back-button" routerLink="/" fxFlex="0 0 auto" fxLayoutGap="10px" fxLayoutAlign="start center">
+            <mat-icon>backspace</mat-icon>
+            <span>BACK TO BLOG</span>
+        </div>
+    </div>
+    <div class="blog-article" fxLayout="column">
+        <h3>{{articleTitle | uppercase}}</h3>
+        <p class="author-and-date">by Paweł Kiszka | {{creationDate}}</p>
+        <ng-content select="[appBlogArticleImage]"></ng-content>
+        <div class="blog-article-content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

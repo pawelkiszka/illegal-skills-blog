@@ -1,0 +1,26 @@
+// Logos
+$angular-logo-url: url('/assets/angular-logo.png');
+$rxjs-logo-url: url('/assets/rxjs-logo.png');
+$ngrx-logo-url: url('/assets/ngrx-logo.png');
+
+// Big images
+$ngrx-store-big-image: url('/assets/ng-rx-store-big-image.png');
+
+// Predefined image classes
+.blog-article-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.angular-image {
+  background-image: $angular-logo-url;
+}
+
+.rxjs-image {
+  background-image: $rxjs-logo-url;
+}
+
+.ngrx-image {
+  background-image: $ngrx-logo-url;
+}

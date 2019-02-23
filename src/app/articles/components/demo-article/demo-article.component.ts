@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./demo-article.component.scss']
 })
 export class DemoArticleComponent {
+
+    public demoCode = `public ngAfterViewInit(): void {
+        this.codeBlocks.forEach(
+            (codeBlock: ElementRef) => hljs.highlightBlock(codeBlock.nativeElement)
+        );
+    }`
 }
