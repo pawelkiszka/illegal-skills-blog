@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PrivacyPolicyComponent } from './core/components/privacy-policy/privacy-policy.component';
 
 const appRoutes: Routes = [
     {
@@ -9,6 +10,10 @@ const appRoutes: Routes = [
     {
         path: 'articles',
         loadChildren: './articles/articles.module#ArticlesModule'
+    },
+    {
+        path: 'privacy-policy',
+        component: PrivacyPolicyComponent
     }
 ];
 

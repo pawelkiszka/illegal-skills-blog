@@ -2,7 +2,15 @@
 
 :host {
   background: $color-secondary;
-  height: 20px;
+  height: 30px;
   border-top: 3px solid $color-primary;
   z-index: 1;
+  padding: 0 1rem;
+  display: flex;
+  font-size: 0.8rem;
+  color: $color-background-light;
+}
+
+a {
+  color: $color-background-light;
 }
