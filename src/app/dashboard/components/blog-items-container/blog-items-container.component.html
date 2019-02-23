@@ -1,47 +1,25 @@
 <div class="transparent" fxFlex="1 1 auto" fxLayout="column">
-    <app-blog-item [topics]="[BlogItemTopic.ANGULAR, BlogItemTopic.NG_RX]"
-                   title="What is AJAX"
-                   link="articles/demo-article">
-        <div appBlogItemImage="" class="angular-image"></div>
-        <label appBlogItemDate="">10-12-2018</label>
-        <div appBlogItemDescription="">
-            <p>
-                Asynchronous Javascript and XML (AJAX), is a way of communicating to a web server from a client-side
-                application through the HTTP or HTTPS protocol.
-            </p>
-            <p>
-                Even though AJAX holds XML in the name, the way data is sent through requests or received doesn't have
-                to be XML, but
-            </p>
-        </div>
-    </app-blog-item>
-    <app-blog-item [topics]="[BlogItemTopic.ANGULAR, BlogItemTopic.RX_JS, BlogItemTopic.NG_RX]"
-                   title="What is LOVE"
+    <app-blog-item [topics]="[BlogItemTopic.ANGULAR, BlogItemTopic.NG_RX, BlogItemTopic.JAVA, BlogItemTopic.TESTING]"
+                   title="Demo blog item - click me to see what's inside"
                    link="articles/demo-article">
         <div appBlogItemImage class="rxjs-image"></div>
-        <label appBlogItemDate>09-02-2019</label>
-        <div appBlogItemDescription>
-            <p>
-                Baby don't hurt me, don't hurt me.
-            </p>
-            <p>
-                No more.
-            </p>
-        </div>
-    </app-blog-item>
-    <app-blog-item [topics]="[BlogItemTopic.JAVA]"
-                   title="What is JAVA"
-                   link="articles/demo-article">
-        <div appBlogItemImage class="ngrx-image"></div>
         <label appBlogItemDate>10-12-2018</label>
         <div appBlogItemDescription>
             <p>
-                Asynchronous Javascript and XML (AJAX), is a way of communicating to a web server from a client-side
-                application through the HTTP or HTTPS protocol.
+                This is some dummy description of the article. This article is awesome, contains incredible stuff and
+                for sure will resolve all your problems.
             </p>
+        </div>
+    </app-blog-item>
+    <app-blog-item [topics]="[BlogItemTopic.ANGULAR]"
+                   title="Polymorphism - Implementing shareable library with flexible API"
+                   link="articles/shareable-library-with-polymorphism">
+        <div appBlogItemImage class="angular-image"></div>
+        <label appBlogItemDate>23-02-2019</label>
+        <div appBlogItemDescription>
             <p>
-                Even though AJAX holds XML in the name, the way data is sent through requests or received doesn't have
-                to be XML, but
+                Use Interfaces and InjectionTokens to build easily maintainable library, shared between multiple
+                web applications.
             </p>
         </div>
     </app-blog-item>

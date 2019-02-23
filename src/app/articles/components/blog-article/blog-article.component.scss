@@ -29,9 +29,27 @@ h3 {
   text-align: center;
 }
 
-::ng-deep.hljs {
-  font-size: 0.8rem;
-  background-color: $color-secondary;
-  border-radius: 5px;
-  padding: 1rem;
+::ng-deep {
+  .hljs {
+    font-size: 0.8rem;
+    background-color: $color-secondary;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  .image-source {
+    color: $color-background-light;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+  }
+
+  ul {
+    li.h6-list-item {
+      font-size: 1.4rem;
+    }
+  }
+
+  .quotation {
+    font-style: italic;
+  }
 }
