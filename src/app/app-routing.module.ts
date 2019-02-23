@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrivacyPolicyComponent } from './core/components/privacy-policy/privacy-policy.component';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
     {
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
     {
         path: 'privacy-policy',
         component: PrivacyPolicyComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 
