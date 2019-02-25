@@ -62,7 +62,8 @@ export class ShareableLibraryWithPolymorphismComponent {
         @Injectable()
         export class DefaultUserContextService implements UserContextService {
 
-            constructor(@Inject(AUTHENTICATION_SERVICE_TOKEN) private readonly authenticationService: AuthenticationService) {
+            constructor(@Inject(AUTHENTICATION_SERVICE_TOKEN) 
+                                    private readonly authenticationService: AuthenticationService) {
             }
         
             public getUserContext(): Observable<UserContext> {
@@ -77,8 +78,10 @@ export class ShareableLibraryWithPolymorphismComponent {
         `,
         tokens: `
         // shareable-library.tokens.ts
-        export const AUTHENTICATION_SERVICE_TOKEN = new InjectionToken<AuthenticationService>('authentication-service');
-        export const USER_CONTEXT_SERVICE_TOKEN = new InjectionToken<UserContextService>('user-context-service');
+        export const AUTHENTICATION_SERVICE_TOKEN = 
+                                new InjectionToken<AuthenticationService>('authentication-service');
+        export const USER_CONTEXT_SERVICE_TOKEN = 
+                                new InjectionToken<UserContextService>('user-context-service');
         `,
         module: `
         @NgModule({})

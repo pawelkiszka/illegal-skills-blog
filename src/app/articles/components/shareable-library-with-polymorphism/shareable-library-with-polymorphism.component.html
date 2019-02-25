@@ -3,63 +3,85 @@
     <div appBlogArticleImage class="blog-article-image lines-big-image"></div>
     <span class="image-source">Source: https://www.bizjournals.com/austin/news/2017/08/23/austin-company-behind-glow-in-the-dark-fish-in-pet.html</span>
 
-    <h5>Case study</h5>
-    <p>
-        Scenario: your client wants you to develop multiple web applications. Each application will be different, but
-        they may use some common mechanism - for example authentication, authorisation and so on. What's important -
-        they <strong>MAY</strong> use it as it is, but not necessary <strong>HAVE TO</strong> use it. Our client was
-        clear about
-        the requirements: <span class="quotation">"We want you to build one shareable library, that we will be able to reuse
+    <section>
+        <h4 class="underlined">Case study</h4>
+        <p>
+            Scenario: your client wants you to develop multiple web applications. Each application will be different,
+            but
+            they may use some common mechanism - for example authentication, authorisation and so on. What's important -
+            they <strong>MAY</strong> use it as it is, but not necessary <strong>HAVE TO</strong> use it. Our client was
+            clear about
+            the requirements: <span class="quotation">"We want you to build one shareable library, that we will be able to reuse
         in each of our web applications"</span>
-    </p>
-
-    <h5>The problem</h5>
-    <p>
-        Lets be clear - each application will differ from the others. Business requirements might change over the time.
-        At the beginning it would look like they are the same - but after couple of weeks/months of development we might
-        face problems, where shareable library is <strong>limiting</strong> us. We would not like a situation, where
-        our application needs changes, the shareable library is blocking us to implement them and the only way out are
-        some dirty hacks.
-    </p>
-
-    <h5>The solution</h5>
-    <p>
-        The answer is <strong>polymorphism</strong>. Shareable library might contain some complex mechanism - where
-        dependency tree is
-        nested and quite complicated, but with polymorphism we will be able to alter each
-        <span style="color: yellow">@Injectable()</span> provider. We may what to use default provider from shareable
-        library,
-        we may also totally change the implementation of provider, or we might want to extend existing implementation -
-        each web application will do what suits it best.
-    </p>
-    <h5>How it works</h5>
-    <p>
-        There are at least two paths to achieve polymorphism:
-    </p>
-    <ul>
-        <li>Based on Abstract Classes</li>
-        <li>Based on Interfaces with InjectionTokens</li>
-    </ul>
-    <p>
-        In this example we I'll use Interfaces with InjectionTokens, as it's better and recommended tool to use in
-        polymorphism (more in that matter in following sections).
-        First we're gonna define our interface - just simple Animal interface, with one method to implement:
-    </p>
-    <pre><code [highlight]="howItWorks.interface"></code></pre>
-    <p>Let implement the Animal interface:</p>
-    <pre><code [highlight]="howItWorks.implementation"></code></pre>
-    <p>There needs to be a place, where we will tell our application, that it should use that particular implementation
-        when such an interface is injected. To achieve it we need to define InjectionToken:</p>
-    <pre><code [highlight]="howItWorks.token"></code></pre>
-    <p>Finally to make our example work we will add the instruction inside Angular module:</p>
-    <pre><code [highlight]="howItWorks.provideAndUseClass"></code></pre>
-    <p>That's pretty much it - in following part we are gonna nail the Shareable library example</p>
-
-    <h5>Example of polymorphism in real application</h5>
-    <ul>
-        <li>
-            <h6>Shareable library</h6>
-            The shareable library is really simple - it's offering two small services:
+        </p>
+    </section>
+    <section>
+        <h4 class="underlined">The problem</h4>
+        <p>
+            Lets be clear - each application will differ from the others. Business requirements might change over the
+            time.
+            At the beginning it would look like they are the same - but after couple of weeks/months of development we
+            might
+            face problems, where shareable library is <strong>limiting</strong> us. We would not like a situation, where
+            our application needs changes, the shareable library is blocking us to implement them and the only way out
+            are
+            some dirty hacks.
+        </p>
+    </section>
+    <section>
+        <h4 class="underlined">The solution</h4>
+        <p>
+            The answer is <strong>polymorphism</strong>. Shareable library might contain some complex mechanism - where
+            dependency tree is
+            nested and quite complicated, but with polymorphism we will be able to alter each
+            <span style="color: yellow">@Injectable()</span> provider. We may want to use default provider from
+            shareable
+            library,
+            we may also totally change the implementation of provider, or we might want to extend existing
+            implementation -
+            each web application will do what suits it best.
+        </p>
+    </section>
+    <section>
+        <h4 class="underlined">How it works</h4>
+        <p>
+            There are at least two paths to achieve polymorphism:
+        </p>
+        <ul>
+            <li>Based on Abstract Classes</li>
+            <li>Based on Interfaces with InjectionTokens</li>
+        </ul>
+        <p>
+            In this example we I'll use Interfaces with InjectionTokens, as it's better and recommended tool to use in
+            polymorphism (more in that matter in following sections).
+            First we're gonna define our interface - just simple Animal interface, with one method to implement:
+        </p>
+        <pre><code [highlight]="howItWorks.interface"></code></pre>
+        <p>
+            Let's implement the Animal interface:
+        </p>
+        <pre><code [highlight]="howItWorks.implementation"></code></pre>
+        <p>
+            There needs to be a place, where we will tell our application, that it should use that particular
+            implementation
+            when such an interface is injected. To achieve it we need to define InjectionToken:
+        </p>
+        <pre><code [highlight]="howItWorks.token"></code></pre>
+        <p>
+            Finally to make our example work we will add the instruction inside Angular module:
+        </p>
+        <pre><code [highlight]="howItWorks.provideAndUseClass"></code></pre>
+        <p>
+            That's pretty much it - in following part we are gonna nail the Shareable library example
+        </p>
+    </section>
+    <section>
+        <h4 class="underlined">Example of polymorphism in real application</h4>
+        <section class="sub-element">
+            <h5 class="underlined">Shareable library</h5>
+            <p>
+                The shareable library is really simple - it offers two small services:
+            </p>
             <ul>
                 <li>
                     UserContextService - responsible for accessing the user's data
@@ -68,17 +90,25 @@
                     AuthenticationService - responsible for authenticating the user
                 </li>
             </ul>
-            <p>The dependency between the services is shown below (UserContextService has dependency of
-                AuthenticationService):</p>
+            <p>
+                The dependency between the services is shown below (UserContextService has dependency of
+                AuthenticationService):
+            </p>
             <div class="shareable-library-diagram-image blog-article-image"></div>
             <p>
                 In order to start the example let's define interfaces and injection tokens of the two services:
             </p>
-            <p>AuthenticationService:</p>
+            <p>
+                AuthenticationService:
+            </p>
             <pre><code [highlight]="shareableLibrary.authenticationService"></code></pre>
-            <p>UserContextService:</p>
+            <p>
+                UserContextService:
+            </p>
             <pre><code [highlight]="shareableLibrary.userContextService"></code></pre>
-            <p>Tokens:</p>
+            <p>
+                Tokens:
+            </p>
             <pre><code [highlight]="shareableLibrary.tokens"></code></pre>
             <p>
                 As it was described in one of the first paragraphs - Shareable library should give it's consumers a
@@ -96,12 +126,12 @@
                 But if web app wants to override any of them - it's free to do it. And that's beautiful.
             </p>
             <pre><code [highlight]="shareableLibrary.module"></code></pre>
-        </li>
-        <li class="h6-list-item">
-            <h6>Web applications - Shareable library consumer</h6>
-        </li>
-    </ul>
-
-    <h5>Conclusions</h5>
-
+        </section>
+        <section class="sub-element">
+            <h5 class="underlined">Web applications - Shareable library consumer</h5>
+        </section>
+    </section>
+    <section>
+        <h4 class="underlined">Conclusions</h4>
+    </section>
 </app-blog-article>

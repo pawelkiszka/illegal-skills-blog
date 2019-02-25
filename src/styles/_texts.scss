@@ -30,7 +30,8 @@ h6 {
 }
 
 p {
-  font-size: 1.0rem;
+  font-size: 1.1rem;
+  line-height: 1.7rem;
 }
 
 label {
@@ -38,5 +39,12 @@ label {
 }
 
 ul, li {
-  font-size: 1.0rem;
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &.underlined {
+    border-bottom: 2px solid $color-primary;
+  }
 }
