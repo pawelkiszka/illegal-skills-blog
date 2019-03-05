@@ -47,6 +47,18 @@ h2 {
     font-style: italic;
   }
 
+  .angular-provider {
+      color: yellow;
+  }
+
+  .code {
+    font-family: "Source Code Pro", Courier, monospace;
+    background: $color-background-light;
+    border-radius: 3px;
+    border: 3px solid $color-background-light;
+    font-size: 0.9rem;
+  }
+
   a {
     color: $color-primary;
   }

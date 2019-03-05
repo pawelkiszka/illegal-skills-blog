@@ -35,7 +35,8 @@ export class ShareableLibraryWithPolymorphismComponent {
         // authentication.service.ts
         export interface AuthenticationService {
             isAuthenticated(): Observable<string>;
-        }`,
+        }
+        `,
         defaultAuthenticationService: `
         // default-authentication.service.ts
         @Injectable()
@@ -44,7 +45,8 @@ export class ShareableLibraryWithPolymorphismComponent {
             public isAuthenticated(): Observable<string> {
                 return of('Called isAuthenticated() method from DefaultAuthenticationService');
             }
-        }`,
+        }
+        `,
         userContextService: `
         // user-context.service.ts
         export interface UserContextService {
@@ -54,7 +56,8 @@ export class ShareableLibraryWithPolymorphismComponent {
         export interface UserContext {
             name: string,
             isAuthenticated: string
-        }`,
+        }
+        `,
         defaultUserContextService: `
         // default-user-context.service.ts
         @Injectable()
@@ -72,7 +75,8 @@ export class ShareableLibraryWithPolymorphismComponent {
                     })
                 );
             }
-        }`,
+        }
+        `,
         tokens: `
         // shareable-library.tokens.ts
         export const AUTHENTICATION_SERVICE_TOKEN = 
@@ -93,7 +97,8 @@ export class ShareableLibraryWithPolymorphismComponent {
                     ]
                 };
             }
-        }`
+        }
+        `
     };
 
     public webApp1 = {
@@ -101,7 +106,8 @@ export class ShareableLibraryWithPolymorphismComponent {
         // app.module.ts
         imports: [
             ShareableLibraryModule.forRoot(),
-        ]`
+        ]
+        `
     };
 
     public webApp2 = {
@@ -125,13 +131,13 @@ export class ShareableLibraryWithPolymorphismComponent {
         }
         `,
         appModule: `
-            // app.module.ts
-            imports: [
-                ShareableLibraryModule.forRoot()
-            ],
-            providers: [
-                {provide: USER_CONTEXT_SERVICE_TOKEN, useClass: CustomUserContextService},
-            ]
+        // app.module.ts
+        imports: [
+            ShareableLibraryModule.forRoot()
+        ],
+        providers: [
+            {provide: USER_CONTEXT_SERVICE_TOKEN, useClass: CustomUserContextService},
+        ]
         `
     };
 
@@ -150,11 +156,13 @@ export class ShareableLibraryWithPolymorphismComponent {
         ],
         providers: [
             {provide: AUTHENTICATION_SERVICE_TOKEN, useClass: CustomAuthenticationService}
-        ]`
+        ]
+        `
     };
 
     public webApp4 = {
-        authenticationWithCompositionService: `        // authentication-with-composition.service.ts
+        authenticationWithCompositionService: `
+        // authentication-with-composition.service.ts
         @Injectable()
         export class AuthenticationWithCompositionService implements AuthenticationService {
             constructor(private readonly defaultAuthenticationService: DefaultAuthenticationService) {
@@ -167,8 +175,10 @@ export class ShareableLibraryWithPolymorphismComponent {
                     )
                 );
             }
-        }`,
-        userContextWithCompositionService: `        // user-context-with-composition.service.ts
+        }
+        `,
+        userContextWithCompositionService: `
+        // user-context-with-composition.service.ts
         @Injectable()
         export class UserContextWithCompositionService implements UserContextService {
             constructor(private readonly defaultUserContextService: DefaultUserContextService) {
@@ -177,13 +187,16 @@ export class ShareableLibraryWithPolymorphismComponent {
             public getUserContext(): Observable<UserContext> {
                 return this.defaultUserContextService.getUserContext().pipe(
                     map((userContextFromDefault: UserContext) => <UserContext>({
-                        name: \`\${userContextFromDefault.name}  but enriched with UserContextWithCompositionService\`,
+                        name: \`\${userContextFromDefault.name}  
+                            but enriched with UserContextWithCompositionService\`,
                         isAuthenticated: userContextFromDefault.isAuthenticated
                     }))
                 );
             }
-        }`,
-        appModule: `        // app.module.ts
+        }
+        `,
+        appModule: `
+        // app.module.ts
         imports: [
             BrowserModule,
             ShareableLibraryModule.forRoot()
@@ -193,6 +206,7 @@ export class ShareableLibraryWithPolymorphismComponent {
             {provide: AUTHENTICATION_SERVICE_TOKEN, useClass: AuthenticationWithCompositionService},
             DefaultAuthenticationService,
             DefaultUserContextService
-        ]`
+        ]
+        `
     };
 }

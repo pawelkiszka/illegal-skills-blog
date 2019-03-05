@@ -1,27 +1,24 @@
-<app-blog-article articleTitle="Angular Polymorphism - Implement library with flexible API"
-                  creationDate="23-02-2019">
-    <div appBlogArticleImage class="blog-article-image lines-big-image"></div>
-    <span class="image-source">Source: https://www.bizjournals.com/austin/news/2017/08/23/austin-company-behind-glow-in-the-dark-fish-in-pet.html</span>
-
+<app-blog-article articleTitle="Angular Polymorphism - Library with flexible API" creationDate="23-02-2019">
+    <div appBlogArticleImage class="blog-article-image main-image"></div>
+    <span class="image-source">Source: </span>
     <section>
         <h4 class="underlined">Case study</h4>
         <p>
-            Scenario: business of your client is based on several web applications, all written in Angular.
-            Each application will be different, but
+            Project scenario: business of your client is based on several web applications, all written in
+            Angular. Each application will be different, but
             they could reuse a common mechanism - for example authentication, authorisation, metrics and so on. What's
             important - they do not necessary have to use all of it, they might want to overwrite a single common
             mechanism, but still have other mechanisms in place. The client was clear about
             the requirements: <span class="quotation">"We want you to build one shareable library, that will be reused
-            by each of our web applications."</span>
+                by each of our web applications. How you'll achieve it is on you"</span>
         </p>
     </section>
     <section>
         <h4 class="underlined">The problem</h4>
         <p>
             Let's be clear - each application will differ from the others. Business requirements might change over the
-            time.
-            At the beginning it might look like the web applications are similar - but after couple of weeks/months of
-            development we might
+            time. At the beginning it might look like the web applications are similar - but after couple of
+            weeks/months of development we might
             face problems, where shareable library is <strong>limiting</strong> us. We would not like a situation, where
             our application needs changes, the shareable library is blocking us to implement them and the only way out
             are some dirty hacks.
@@ -30,13 +27,12 @@
     <section>
         <h4 class="underlined">The solution</h4>
         <p>
-            The answer is <strong>polymorphism</strong>. Shareable library might contain some complex mechanism - where
-            dependency tree is
-            nested and quite complicated, but with polymorphism we will be able to alter each
-            <span style="color: yellow">@Injectable()</span> provider. We may want to use default provider from
+            The answer is <strong>polymorphism</strong>. Shareable library might contain some complex mechanisms - where
+            dependency tree is nested and quite complicated, but with polymorphism we will be able to alter each
+            <span class="angular-provider code">@Injectable()</span> provider. We may want to use default provider from
             shareable library,
             we may also totally change the implementation of provider, or we might want to extend existing
-            implementation - each web application will do what suits it best.
+            implementation - each web application will do what best suits it.
         </p>
     </section>
     <section>
@@ -45,13 +41,13 @@
             There are at least two paths to achieve polymorphism:
         </p>
         <ul>
-            <li>Based on Abstract Classes</li>
-            <li>Based on Interfaces with InjectionTokens</li>
+            <li>Based on <span class="code">abstract class</span></li>
+            <li>Based on <span class="code">interface</span> with <span class="code">InjectionToken</span></li>
         </ul>
         <p>
-            In this example we I'll use Interfaces with InjectionTokens, as it's better and recommended tool to use in
-            polymorphism (more in that matter in following sections).
-            First we're gonna define our interface - just simple Animal interface, with one method to implement:
+            In this example I'll use <span class="code">interface</span> with <span class="code">InjectionToken</span>
+            (check <span class="quotation">"Interface + InjectionToken or Abstract Class"</span> section to find out
+            why). First we're gonna define our interface - just simple Animal interface, with one method to implement:
         </p>
         <pre><code [highlight]="howItWorks.interface"></code></pre>
         <p>
@@ -60,7 +56,8 @@
         <pre><code [highlight]="howItWorks.implementation"></code></pre>
         <p>
             There needs to be a place, where we will tell our application, that it should use that particular
-            implementation when such an interface is injected. To achieve it we need to define InjectionToken:
+            implementation when such an interface is injected. To achieve it we need to define
+            <span class="code">InjectionToken</span>:
         </p>
         <pre><code [highlight]="howItWorks.token"></code></pre>
         <p>
@@ -76,32 +73,33 @@
         <section class="sub-element">
             <h5 class="underlined">Shareable library</h5>
             <p>
-                The shareable library is really simple - it offers two small services:
+                Ideally shareable library would define dozens of services, with nested and complicated dependencies. For
+                purposes of this demo we will introduce only two services:
             </p>
             <ul>
                 <li>
-                    UserContextService - responsible for accessing the user's data.
+                    <span class="code">UserContextService</span> - responsible for accessing the user's data.
                 </li>
                 <li>
-                    AuthenticationService - responsible for authenticating the user.
+                    <span class="code">AuthenticationService</span> - responsible for authenticating the user.
                 </li>
             </ul>
             <p>
-                The dependency between the services is shown below (UserContextService has dependency of
-                AuthenticationService):
+                The dependency between the services is shown below
+                (<span class="code">UserContextService</span>
+                has dependency of
+                <span class="code">AuthenticationService</span>):
             </p>
-            <!--tutaj moze (i powinno) być więcej dependecy. Głównie z uwagi na to, ze jezeli UserContextService nie -->
-            <!--zależy od niczego innego, to ten przykład nie ma sensu-->
             <div class="shareable-library-diagram-image blog-article-image"></div>
             <p>
                 In order to start the example let's define interfaces and injection tokens of the two services:
             </p>
             <p>
-                AuthenticationService:
+                <span class="code">AuthenticationService</span>:
             </p>
             <pre><code [highlight]="shareableLibrary.authenticationService"></code></pre>
             <p>
-                UserContextService:
+                <span class="code">UserContextService</span>:
             </p>
             <pre><code [highlight]="shareableLibrary.userContextService"></code></pre>
             <p>
@@ -116,11 +114,10 @@
             <pre><code [highlight]="shareableLibrary.defaultAuthenticationService"></code></pre>
             <pre><code [highlight]="shareableLibrary.defaultUserContextService"></code></pre>
             <p>
-                Shareable library should also give it's consumers an instruction, that would bind tokens with it's
-                default
+                Shareable library should also give it's consumers an instruction, how the tokens should be bound
+                to it's default
                 implementation. If web application is not overriding them - the defaults from shareable library are
-                used.
-                But if web app wants to override any of them - it's free to do it. And that's beautiful.
+                used. But if web app wants to override any of them - it's free to do it. And that's beautiful.
             </p>
             <pre><code [highlight]="shareableLibrary.module"></code></pre>
         </section>
@@ -131,8 +128,8 @@
             <h5 class="underlined">Web application - No.1</h5>
             <p>Requirements:</p>
             <ul>
-                <li>Use default implementation of AuthenticationService.</li>
-                <li>Use default implementation of UserContextService.</li>
+                <li>Use default implementation of <span class="code">AuthenticationService</span>.</li>
+                <li>Use default implementation of <span class="code">UserContextService</span>.</li>
             </ul>
             <p>Solution:</p>
             <p>We don't need anything fancy here - so the easiest solution is just import the library module:</p>
@@ -142,19 +139,22 @@
             <h5 class="underlined">Web application - No.2</h5>
             <p>Requirements:</p>
             <ul>
-                <li>Use default implementation of AuthenticationService.</li>
+                <li>Use default implementation of <span class="code">AuthenticationService</span>.</li>
                 <li>
-                    Default implementation of UserContextService does not meet requirements of this web application.
-                    We are forced to totally reimplement UserContextService - and introduce CustomUserContextService.
+                    Default implementation of <span class="code">UserContextService</span> does not meet requirements of
+                    this web application.
+                    We are forced to totally reimplement <span class="code">UserContextService</span> - and introduce
+                    <span class="code">CustomUserContextService</span>.
                 </li>
             </ul>
             <p>Solution</p>
             <p>
-                AuthenticationService with it's default implementation suites us, but default UserContextService has to
-                be
-                totally overwritten. We need to define another service, that implements UserContextService interface -
-                once that is achieved we will be able to tell our app, that it should use our CustomUserContextService
-                in every place, where UserContextService is required:
+                <span class="code">AuthenticationService</span> with it's default implementation suites us, but default
+                <span class="code">UserContextService</span> has to be
+                totally overwritten. We need to define another service, that implements <span class="code">UserContextService</span>
+                interface -
+                once that is achieved we will be able to tell our app, that it should use our <span class="code">CustomUserContextService</span>
+                in every place, where <span class="code">UserContextService</span> is required:
             </p>
             <pre><code [highlight]="webApp2.customUserContextService"></code></pre>
             <p>
@@ -169,26 +169,30 @@
             <p>Requirements:</p>
             <ul>
                 <li>
-                    AuthenticationService needs to be overwritten by CustomAuthenticationService, that serves data
-                    specific only to this web application.
+                    <span class="code">AuthenticationService</span> needs to be overwritten by
+                    <span class="code">CustomAuthenticationService</span>,
+                    that serves data specific only to this web application.
                 </li>
-                <li>Use default implementation of UserContextService.</li>
+                <li>Use default implementation of <span class="code">UserContextService</span>.</li>
             </ul>
             <p>Solution:</p>
             <p>
                 The case in this web application is pretty much same as in the above example - but right now we will be
-                changing the perception of DefaultUserContextService (which resides inside Shareable library). We are
-                gonna tell the UserContextService implementation that it should not take DefaultAuthenticationService,
-                but our CustomAuthenticationService instead. This example shows that we can change each small brick,
-                that resides inside Shareable library nested dependency tree.
+                changing the perception of <span class="code">DefaultUserContextService</span> (which resides inside
+                Shareable library). We are
+                gonna tell the <span class="code">UserContextService</span> implementation that it should not take
+                <span class="code">DefaultAuthenticationService</span>,
+                but our <span class="code">CustomAuthenticationService</span> instead. This example shows that we can
+                change each small brick, that resides inside Shareable library nested dependency tree.
             </p>
-            <p>Let's implement CustomAuthenticationServie:</p>
+            <p>Let's implement <span class="code">CustomAuthenticationService</span>:</p>
             <pre><code [highlight]="webApp3.customAuthenticationService"></code></pre>
             <p>Same as above, we need to instruct our application, that certain dependency should be overwritten:</p>
             <pre><code [highlight]="webApp3.appModule"></code></pre>
             <p>
-                With that implemented, the DefaultUserContextService from Shareable library will pick
-                CustomAuthenticationService straight from our web app.
+                With that implemented, the <span class="code">DefaultUserContextService</span> from Shareable library
+                will pick
+                <span class="code">CustomAuthenticationService</span> straight from our web app.
             </p>
         </section>
         <section class="sub-element">
@@ -196,11 +200,12 @@
             <p>Requirements:</p>
             <ul>
                 <li>
-                    Default implementation of AuthenticationService is quite good, but have to add couple of bits to it.
+                    Default implementation of <span class="code">AuthenticationService</span> is quite good, but have to
+                    add couple of bits to it.
                 </li>
                 <li>
-                    We will use default implementation of UserContextService, but it needs to be enriched, to meet our
-                    expectations.
+                    We will use default implementation of <span class="code">UserContextService</span>, but it needs to
+                    be enriched, to meet our expectations.
                 </li>
             </ul>
             <p>Solution:</p>
@@ -208,17 +213,20 @@
                 Most probably this case will be the commonly used one. It might be unlikely situation that we will be
                 forced to totally change the behavior of default services. Instead of it we might want to somehow enrich
                 the base behavior with our custom inset. To achieve that we will use composition design technique (more
-                about composition can be found
-                <a href="https://www.journaldev.com/1325/composition-in-java-example" target="_blank">here</a>).
+                about composition can be found here:
+                <a href="https://www.journaldev.com/1325/composition-in-java-example"
+                   target="_blank">https://www.journaldev.com/1325/composition-in-java-example</a>).
             </p>
             <p>
-                Let's define AuthenticationWithCompositionService and UserContextWithCompositionService. Both are
+                Let's define <span class="code">AuthenticationWithCompositionService</span> and
+                <span class="code">UserContextWithCompositionService</span>. Both are
                 implementing interfaces from Shareable library:
             </p>
             <pre><code [highlight]="webApp4.authenticationWithCompositionService"></code></pre>
             <pre><code [highlight]="webApp4.userContextWithCompositionService"></code></pre>
             <p>
-                As we can see - DefaultAuthenticationService and DefaultUserContextService were used to provide
+                As we can see - <span class="code">DefaultAuthenticationService</span>
+                and <span class="code">DefaultUserContextService</span> were used to provide
                 composition. Let's define dependencies in the module:
             </p>
             <pre><code [highlight]="webApp4.appModule"></code></pre>
@@ -237,7 +245,7 @@
                 it.
             </li>
             <li>
-                Ability to reimplement leafs in dependency tree, event those sitting deep, deep down.
+                Ability to reimplement leafs in dependency tree, even those sitting deep, deep down.
             </li>
             <li>
                 Shareable library may not define default implementation for a service on purpose, giving bright
@@ -253,43 +261,82 @@
                 any changes. If there is strong need for an adjustment, we have to assume that it will be a breaking
                 change for (at least one) web application
                 - we have to update the version of our library, to alert consumers that there was an adjustment
-                done - for example upgrade from version 1.2.10 to 2.0.0, (more about versioning can be found
-                <a href="https://semver.org/" target="_blank">here</a>).
+                done - for example upgrade from version 1.2.10 to 2.0.0, (more about versioning can be found here:
+                <a href="https://semver.org/" target="_blank">https://semver.org/</a>).
             </li>
             <li>
                 We will be forced to write a little more code than we would without polymorphism.
             </li>
             <li>
                 In order to instruct our application to use a custom implementation of some interface, we have to put
-                a definition in module. That approach is not explicit, it's implicit and for developers not familiar
-                with it it will look magically.
+                a definition in module. That approach is implicit and for developers not familiar
+                with it it will look 'magically'.
             </li>
         </ul>
-        <h4 class="underlined">Why favor interfaces over abstract classes</h4>
+        <h4 class="underlined">Interface + InjectionToken or Abstract Class</h4>
         <p>
-            Abstract classes in dependency injection may look like better solution. With interfaces we have to define
-            two elements: Interface and InjectionToken, where for abstract classes only one (only the abstract class).
-            But there are three big disadvantages of abstract classes:
+            In 'Shareable library' demo I've used Interfaces and InjectionTokens as polymorphism keys. As I'm developer
+            with backend background, presented solution appeals to me much more than the one with abstract classes.
+            But the decision is on you - both solutions have it's advantages and drawbacks - lets list them out:
         </p>
+        <p><span class="code">interface</span> + <span class="code">InjectionToken</span></p>
         <ul>
+            Advantages:
             <li>
-                It's possible for abstract class to have non-abstract, implemented methods. Each class that extends
-                abstract class (and is used as dependency) is contaminated with non-abstract methods. We may agree
-                internally that we won't define any non-abstract methods, but we cannot be 100% sure that it won't
-                ever happen. One would say that we always can implement (instead of extending) abstract classes, so
-                non-abstract methods won't be taken into account. But still - this requirement can be easily broken by
-                any developer that use 'extends' instead of 'implements' in any place.
-                On the other hand interfaces can not have any methods implemented, so the problem does not occur.
-                Developer is forced to implement each method in interface.
+                Interfaces were designed to be a support for polymorphism. Their purpose is to define the
+                contract between it's implementation and it's consumer.
+                They can't hold any default implementation (as it's possible for abstract class to have non-abstract
+                method) so providers that are implementing the interface will not be contaminated with default
+                implementations.
             </li>
             <li>
-                It's possible for abstract classes to hold state (private, public or protected, static or nonstatic
-                fields that are holdings values). Each class extending abstract class would be contaminated with
-                the state.
+                We need to use 'implements' keyword to really implement the interface - the chaos with
+                'extends/implements' does not exist here (as it is in abstract class).
+            </li>
+            Drawbacks:
+            <li>
+                We have to define <span class="angular-provider code">@Inject(...)</span> in every place where our
+                interface is injected.
             </li>
             <li>
-                Solution with abstract classes is even more implicit than the one with interfaces. Taking a deeper
-                look on shareable library - InjectionTokens are explicitly defined and used in constructors.
+                We have to implement InjectionToken - which is additional part of code, that does not exist for
+                abstract classes.
+            </li>
+        </ul>
+        <p><span class="code">abstract class</span>:</p>
+        <ul>
+            Advantages:
+            <li>Dependency injections in components/services are more distinct.</li>
+            <li>We don't need to write <span class="angular-provider code">@Inject(...)</span> in each place where the
+                dependency is used.
+            </li>
+            <li>We don't have to implement InjectionTokens for each abstract class that would be implemented into
+                provider.
+            </li>
+            Drawbacks:
+            <li>
+                Abstract classes were not designed to support polymorphism.
+                It's possible for abstract class to have non-abstract, implemented methods - for some developers that
+                might be huge temptation. But it would be still possible to use 'implements' keyword, to wipe out
+                all implemented methods. <br>
+                Wait a sec, 'implements'??? Yes, in Typescript it's possible to implement abstract class. It will then
+                'behave' as interface, so we will have to implement every (even non-abstract) method that is defined
+                inside the abstract class. By 'every' I mean that even private methods or private class members :D. From
+                my perspective this
+                looks like huge hack made by Typescript developers - private methods should stay inside the place where
+                they were implemented, it's not fine that their signature overflows to abstract class descendants.<br>
+                But lets go back to abstract class. The second options is to use 'extends' keyword, and that will work
+                as well, that's totally fine for Typescript. Is it
+                fine for us - not at all. What hacky 'implements' gives us is conviction that even if any developer has
+                introduced any non-abstract method, then our implementation won't use it. But with 'extends' every
+                implementation will be contaminated with non-abstract method. What's even worst - abstract classes can
+                be stateful. So will be our 'extended' implementation.<br>
+                In summary - if any developer has opportunity to break anything - he will. Is it safe to use abstract
+                classes in longer run - I would not promise that.
+            </li>
+            <li>
+                Solution with abstract classes is even more implicit than the one with interfaces.
+                InjectionTokens are explicitly defined and used in constructors.
                 Developer instantly knows, that this particular dependency may be overwritten, and that there exist
                 an implementation for an interface used in InjectionToken. On the other hand we can have abstract class
                 with a state, 1 abstract method and 3 non-abstract methods. It may not be obvious that there exists
@@ -300,7 +347,8 @@
         <h4 class="underlined">GitHub</h4>
         <p>
             Check working example
-            <a href="https://github.com/pawelkiszka/angular-sharing-library-between-web-apps" target="_blank">here</a>.
+            <a href="https://github.com/pawelkiszka/angular-sharing-library-between-web-apps" target="_blank">on
+                github</a>.
         </p>
     </section>
 </app-blog-article>
