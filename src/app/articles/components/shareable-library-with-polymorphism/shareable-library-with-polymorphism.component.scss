@@ -1,11 +1,12 @@
 @import "styles";
 
 .main-image {
+  background-image: $image-url-cookies;
   height: 300px;
   background-size: cover;
 }
 
 .shareable-library-diagram-image {
-  background-image: $shareable-library-diagram-image;
+  background-image: $image-url-shareable-library-graph;
   height: 150px;
 }
